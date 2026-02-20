@@ -158,7 +158,7 @@ class VPRModel(pl.LightningModule):
         descriptors = self(images) # Here we are calling the method forward that we defined above
         loss = self.loss_function(descriptors, labels) # Call the loss_function we defined above
         
-        self.log('loss', loss.item(), logger=True)
+        self.log('loss', loss.item(), prog_bar=True, logger=True)
         return {'loss': loss}
     
     # This is called at the end of eatch training epoch
